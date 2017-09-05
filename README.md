@@ -3,7 +3,7 @@
 *This library is a set of very basic but usefull tools for C developping<br />
 Its goal is to ease C development by simplifying repetitive or long tasks like memory gestion*
 
-***How to use: ***
+<h3><i>How to use:</i></h3>
 <ol>
     <li>
         Add `CLib_v2.h` and `CLib_v2.a` to your project's folder
