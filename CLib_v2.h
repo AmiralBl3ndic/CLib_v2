@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 
 /*###########################
@@ -62,5 +63,27 @@ float** new_2D_float_array(int dim1, int dim2);
         int dim1 → the number of sub-arrays
 */
 void free_2D_array(void** array, int dim1);
+
+
+/*###########################
+      RANDOM MANAGEMENT
+############################*/
+
+/*
+    Inits the random for a program
+
+    USE: put this function at the beginning of the main() function
+*/
+void init_random();
+
+/*
+    Returns an integer between the two specified bounds
+    This function detects which bound is the lower one
+
+    Parameters:
+        int infBound → lower bound
+        int supBound → upper bound
+*/
+int random_int(int infBound, int supBound);
 
 #endif

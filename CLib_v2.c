@@ -67,3 +67,30 @@ void free_2D_array(void** array, int dim1)
 
     free(array);
 }
+
+
+/*###########################
+      RANDOM MANAGEMENT
+############################*/
+
+void init_random()
+{
+    srand(time(NULL));
+}
+
+
+int random_int(int infBound, int supBound)
+{
+    if (infBound < supBound)
+        return rand()%(supBound - infBound) + infBound;
+
+    if (infBound > supBound)
+        return rand()%(infBound - supBound) + supBound;
+
+    return infBound;
+}
+
+
+/*###########################
+      STRING MANAGEMENT
+############################*/
