@@ -1,9 +1,7 @@
 <h1>CLib_v2 Library : a C static library</h1>
 
-*
-    This library is a set of very basic but usefull tools for C developping<br />
-    Its goal is to ease C development by simplifying repetitive or long tasks like memory gestion
-*
+*This library is a set of very basic but usefull tools for C developping<br />
+Its goal is to ease C development by simplifying repetitive or long tasks like memory gestion*
 
 ***How to use: ***
 <ol>
