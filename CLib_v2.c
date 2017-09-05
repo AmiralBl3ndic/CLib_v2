@@ -94,3 +94,38 @@ int random_int(int infBound, int supBound)
 /*###########################
       STRING MANAGEMENT
 ############################*/
+
+char* getString()
+{
+    char* string = (char*) malloc(sizeof(char));
+    char read;
+    int chars = 1;
+
+    while ((read = getchar()) != '\n')
+    {
+        string = (char*) realloc(string, ++chars * sizeof(char));
+        string[chars - 2] = read;
+    }
+
+    string[chars - 1] = '\0';
+
+    return string;
+}
+
+
+char* getString_stream(FILE* stream)
+{
+    char* string = (char*) malloc(sizeof(char));
+    char read;
+    int chars = 1;
+
+    while ((read = fgetc(stream)) != '\n')
+    {
+        string = (char*) realloc(string, ++chars * sizeof(char));
+        string[chars - 2] = read;
+    }
+
+    string[chars - 1] = '\0';
+
+    return string;
+}

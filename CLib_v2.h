@@ -5,6 +5,16 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define WINDOWS_CLEAR_COMMAND "cls"
+#define UNIX_CLEAR_COMMAND "clear" 
+
+typedef struct Coords
+{
+    int x;
+    int y;
+    int z;
+} Coords;
+
 
 /*###########################
     ALLOCATION CHECKING
@@ -85,5 +95,25 @@ void init_random();
         int supBound → upper bound
 */
 int random_int(int infBound, int supBound);
+
+
+/*###########################
+      STRING MANAGEMENT
+############################*/
+
+/*
+    Reads a string from user input (stdin) (dynamic allocation, needs to be freed)
+
+    Return value: string read from user input
+*/
+char* getString();
+
+/*
+    Reads a string from stream or file (dynamic allocation, needs to be freed)
+
+    Return value : string read from stream or file
+*/
+char* getString_stream(FILE* stream);
+
 
 #endif
