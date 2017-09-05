@@ -1,1 +1,69 @@
 #include "CLib_v2.h"
+
+
+/*###########################
+    ALLOCATION CHECKING
+############################*/
+
+void check_alloc(void* p)
+{
+    if (!p)
+        exit(EXIT_FAILURE);
+}
+
+
+int check_alloc_noExit(void* p)
+{
+    if (!p)
+        return 0;
+
+    return 1;
+}
+
+
+
+/*###########################
+      ARRAY MANAGEMENT
+############################*/
+
+int** new_2D_int_array(int dim1, int dim2)
+{
+    int i = 0;
+    int** array = (int**) malloc(dim1 * sizeof(int*));
+    check_alloc(array);
+
+    for (i = 0; i < dim2; i++)
+    {
+        array[i] = (int*) malloc(dim2 * sizeof(int));
+        check_alloc(array[i]);
+    }
+
+    return array;
+}
+
+
+float** new_2D_float_array(int dim1, int dim2)
+{
+    int i = 0;
+    float** array = (float**) malloc(dim1 * sizeof(float*));
+    check_alloc(array);
+
+    for (i = 0; i < dim2; i++)
+    {
+        array[i] = (float*) malloc(dim2 * sizeof(float));
+        check_alloc(array[i]);
+    }
+
+    return array;
+}
+
+
+void free_2D_array(void** array, int dim1)
+{
+    int i = 0;
+
+    for (i = 0; i < dim1; i++)
+        free(array[i]);
+
+    free(array);
+}
