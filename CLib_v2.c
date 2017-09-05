@@ -69,6 +69,16 @@ void free_2D_array(void** array, int dim1)
 }
 
 
+/*TODO
+    void pushback(int* array, int value)
+*/
+
+/*TODO
+    pop(int* array)
+
+    ==> Will need to free the array
+*/
+
 /*###########################
       RANDOM MANAGEMENT
 ############################*/
