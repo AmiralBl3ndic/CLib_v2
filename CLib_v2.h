@@ -6,7 +6,7 @@
 #include <time.h>
 
 #define WINDOWS_CLEAR_COMMAND "cls"
-#define UNIX_CLEAR_COMMAND "clear" 
+#define UNIX_CLEAR_COMMAND "clear"
 
 typedef struct Coords
 {
@@ -115,5 +115,138 @@ char* getString();
 */
 char* getString_stream(FILE* stream);
 
+/*################################
+      LINKED LISTS MANAGEMENT
+#################################*/
+
+//Linked list
+typedef struct LList
+{
+    int val;
+    struct LList* next;
+    struct LList* prev;
+} LList;
+
+/*
+    Inits a Linked list (LList)
+
+    Return value: pointer on the first element of the LList
+*/
+LList* init_LList(int size);
+
+/*
+    Frees a Linked list (LList) from the node given as parameter
+*/
+void free_partialLList(LList* myList);
+
+/*
+    Frees the entire LList given as parameter
+
+    Parameters:
+        LList* myList → pointer on any element (node) of the LList
+*/
+void free_LList(LList* myList);
+
+/*
+    Jumps to the next element (node) (if existing) in the LList given as parameter
+
+    Parameters
+        LList* myList → pointer on a LList element (node)
+*/
+void next_LList(LList* myList);
+
+/*
+    Jumps to the previous element (node) (if existing) in the LList given as parameter
+
+    Parameters
+        LList* myList → pointer on a LList element (node)
+*/
+void prev_LList(LList* myList);
+
+/*
+    Returns the size of the linked list given as parameter
+
+    Parameters:
+        LList myList → Any element (node) of a linked list
+*/
+int size_LList(LList myList);
+
+/*
+    Sets the active element of the given LList to its first element
+
+    Parameters:
+        LList* myList → pointer on any element of a LList
+*/
+void goFirst_LList(LList* myList);
+
+/*
+    Sets the active element of the given LList to its last element
+
+    Parameters:
+        LList* myList → pointer on any element of a LList
+*/
+void goLast_LList(LList* myList);
+
+/*
+    Adds an element to the end of a LList (by creating a new node at its end)
+
+    DOES NOT CHANGE THE ACTIVE LLIST ELEMENT
+
+    Parameters
+        LList* myList → pointer on any element of the LList
+        int value → value to add to the LList
+*/
+void pushback_LList(LList* myList, int value);
+
+/*
+    Removes the last element (node) from the given LList
+
+    Parameters:
+        LList* myList → pointer on any element of the LList
+
+    Return value:
+        Value of the last element of the given LList
+*/
+int pop_LList(LList* myList);
+
+/*
+    Returns the index (subscript) of the active element in the given LList
+
+    Parameters:
+        LList* myList → pointer on the active element of the LList
+
+    Return value:
+        Index (subscript) of the given element (node) in the LList
+*/
+int getPos_LList(LList* myList);
+
+/*
+    Inserts a new element (node) right after the active element of the given LList
+
+    Parameters:
+        LList* myList → pointer on the active element of the LList
+        int value → value to insert
+*/
+void insertNext_LList(LList* myList, int value);
+
+/*
+    Inserts a new element (node) right before the active element of the given LList
+
+    Parameters:
+        LList* myList → pointer on the active element of the LList
+        int value → value to insert
+*/
+void insertPrev_LList(LList* myList, int value);
+
+/*
+    Removes the active element (node) in the given LList
+
+    Parameters:
+        LList* myList → pointer on the element to remove to the LList
+
+    Return value:
+        Value of the removed element (node)
+*/
+int remove_LList(LList* myList);
 
 #endif
