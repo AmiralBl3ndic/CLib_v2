@@ -320,3 +320,13 @@ int remove_LList(LList* myList)
 
     return value;
 }
+
+
+/*##############################
+      ERGONOMY MANAGEMENT
+###############################*/
+
+void clear_screen()
+{
+    system(CLEAR);
+}

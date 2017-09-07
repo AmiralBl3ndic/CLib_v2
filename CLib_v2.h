@@ -5,8 +5,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define WINDOWS_CLEAR_COMMAND "cls"
-#define UNIX_CLEAR_COMMAND "clear"
+#ifdef __WIN32__
+    #define CLEAR "cls"
+#else
+    #define CLEAR "clear"
+#endif
 
 typedef struct Coords
 {
@@ -20,13 +23,13 @@ typedef struct Coords
     ALLOCATION CHECKING
 ############################*/
 
-/*
+/* #ADDED TO DOC
     Checks if a pointer points on NULL
     If the adress given in parameter is NULL (or 0), it stops the program with an error code
 */
 void check_alloc(void* p);
 
-/*
+/* #ADDED TO DOC
     Checks if a pointer points on NULL
     If the adress given in parameter is NULL (or 0), it returns 0.
 
@@ -41,7 +44,7 @@ int check_alloc_noExit(void* p);
       ARRAY MANAGEMENT
 ############################*/
 
-/*
+/* #ADDED TO DOC
     Returns a two dimensionnal integers array (array of arrays)
 
     Parameters:
@@ -53,7 +56,7 @@ int check_alloc_noExit(void* p);
 */
 int** new_2D_int_array(int dim1, int dim2);
 
-/*
+/* #ADDED TO DOC
     Returns a two dimensionnal float array (array of arrays)
 
     Parameters:
@@ -65,7 +68,7 @@ int** new_2D_int_array(int dim1, int dim2);
 */
 float** new_2D_float_array(int dim1, int dim2);
 
-/*
+/* #NOT FONCTIONNAL
     Frees a two dimensionnal array of any type
 
     Parameters:
@@ -79,14 +82,14 @@ void free_2D_array(void** array, int dim1);
       RANDOM MANAGEMENT
 ############################*/
 
-/*
+/*  #ADDED TO DOC
     Inits the random for a program
 
     USE: put this function at the beginning of the main() function
 */
 void init_random();
 
-/*
+/* #ADDED TO DOC
     Returns an integer between the two specified bounds
     This function detects which bound is the lower one
 
@@ -119,6 +122,7 @@ char* getString_stream(FILE* stream);
       LINKED LISTS MANAGEMENT
 #################################*/
 
+//#ADDED TO DOC
 //Linked list
 typedef struct LList
 {
@@ -127,19 +131,19 @@ typedef struct LList
     struct LList* prev;
 } LList;
 
-/*
+/* #ADDED TO DOC
     Inits a Linked list (LList)
 
     Return value: pointer on the first element of the LList
 */
 LList* init_LList(int size);
 
-/*
+/* #ADDED TO DOC
     Frees a Linked list (LList) from the node given as parameter
 */
 void free_partialLList(LList* myList);
 
-/*
+/* #ADDED TO DOC
     Frees the entire LList given as parameter
 
     Parameters:
@@ -147,7 +151,7 @@ void free_partialLList(LList* myList);
 */
 void free_LList(LList* myList);
 
-/*
+/* #ADDED TO DOC
     Jumps to the next element (node) (if existing) in the LList given as parameter
 
     Parameters
@@ -155,7 +159,7 @@ void free_LList(LList* myList);
 */
 void next_LList(LList* myList);
 
-/*
+/* #ADDED TO DOC
     Jumps to the previous element (node) (if existing) in the LList given as parameter
 
     Parameters
@@ -163,7 +167,7 @@ void next_LList(LList* myList);
 */
 void prev_LList(LList* myList);
 
-/*
+/* #ADDED TO DOC
     Returns the size of the linked list given as parameter
 
     Parameters:
@@ -171,7 +175,7 @@ void prev_LList(LList* myList);
 */
 int size_LList(LList myList);
 
-/*
+/* #ADDED TO DOC
     Sets the active element of the given LList to its first element
 
     Parameters:
@@ -179,7 +183,7 @@ int size_LList(LList myList);
 */
 void goFirst_LList(LList* myList);
 
-/*
+/*#ADDED TO DOC
     Sets the active element of the given LList to its last element
 
     Parameters:
@@ -187,7 +191,7 @@ void goFirst_LList(LList* myList);
 */
 void goLast_LList(LList* myList);
 
-/*
+/* #ADDED TO DOC
     Adds an element to the end of a LList (by creating a new node at its end)
 
     DOES NOT CHANGE THE ACTIVE LLIST ELEMENT
@@ -198,7 +202,7 @@ void goLast_LList(LList* myList);
 */
 void pushback_LList(LList* myList, int value);
 
-/*
+/* #ADDED TO DOC
     Removes the last element (node) from the given LList
 
     Parameters:
@@ -209,7 +213,7 @@ void pushback_LList(LList* myList, int value);
 */
 int pop_LList(LList* myList);
 
-/*
+/* #ADDED TO DOC
     Returns the index (subscript) of the active element in the given LList
 
     Parameters:
@@ -220,7 +224,7 @@ int pop_LList(LList* myList);
 */
 int getPos_LList(LList* myList);
 
-/*
+/* #ADDED TO DOC
     Inserts a new element (node) right after the active element of the given LList
 
     Parameters:
@@ -229,7 +233,7 @@ int getPos_LList(LList* myList);
 */
 void insertNext_LList(LList* myList, int value);
 
-/*
+/* #ADDED TO DOC
     Inserts a new element (node) right before the active element of the given LList
 
     Parameters:
@@ -238,7 +242,7 @@ void insertNext_LList(LList* myList, int value);
 */
 void insertPrev_LList(LList* myList, int value);
 
-/*
+/* #ADDED TO DOC
     Removes the active element (node) in the given LList
 
     Parameters:
@@ -248,5 +252,15 @@ void insertPrev_LList(LList* myList, int value);
         Value of the removed element (node)
 */
 int remove_LList(LList* myList);
+
+
+/*##############################
+      ERGONOMY MANAGEMENT
+###############################*/
+
+/*
+    Clears console screen, regardless of the OS
+*/
+void clear_screen();
 
 #endif
