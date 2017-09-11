@@ -253,6 +253,60 @@ void insertPrev_LList(LList* myList, int value);
 */
 int remove_LList(LList* myList);
 
+/*
+    Returns the value of the current element of the LList
+
+    Parameters:
+        const LList myList → Current element (node) of the LList
+
+    Return value:
+        (int) value of the active element (node) of the LList
+*/
+int getValue(const LList myList);
+
+/*
+    Modifies the value of the active element (node) of the LList
+
+    Parameters
+        LList* myList → Pointer on the active element (node) of the LList
+        const int value → new value of the element
+*/
+void setValue(LList* myList, const int value);
+
+/*
+    Sets the value of any element (node) of the LList
+
+    Parameters:
+        LList* myList → pointer on any element (node) of the list
+        const unsigned int index → index (subscript) of the element to modify
+        const int value → new value for the element
+*/
+void setValue_any(LList* myList, const unsigned int index, const int value);
+
+/*
+    Sets the active element (node) of the LList to the index specified
+
+    Parameters:
+        LList* myList → Pointer on any element of the LList
+        const unsigned int index → index of the element to set active
+*/
+void setActiveElement_LList(LList* myList, const unsigned int index);
+
+/*
+    Displays the LList to the screen from the active element (node) to the end of the LList
+
+    Parameters:
+        LList* myList → Pointer on the active element (node) of the LList
+*/
+void display_partialLList(LList* myList);
+
+/*
+    Displays the whole LList to the screen
+
+    Parameters:
+        LList* myList → Pointer on any element (node) of the LList
+*/
+void display_LList(LList* myList);
 
 /*##############################
       ERGONOMY MANAGEMENT

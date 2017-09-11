@@ -69,16 +69,6 @@ void free_2D_array(void** array, int dim1)
 }
 
 
-/*TODO
-    void pushback(int* array, int value)
-*/
-
-/*TODO
-    pop(int* array)
-
-    ==> Will need to free the array
-*/
-
 /*###########################
       RANDOM MANAGEMENT
 ############################*/
@@ -147,18 +137,25 @@ char* getString_stream(FILE* stream)
 
 LList* init_LList(int size)
 {
+    int i = 0;
+
     if (size <= 0)
         return NULL;
 
-    int i = 0;
+    LList *ret = NULL;
     LList *myList = malloc(sizeof(LList));
-    LList *ret = myList;
+    check_alloc(myList);
+
+    myList->prev = NULL;
+
+    ret = myList; //Saving the adress of the first element of the LList
 
     //Init LList
     for (i = 1; i < size; i++)
     {
         myList->next = malloc(sizeof(LList));
         check_alloc(myList->next);
+        (myList->next)->prev = myList;
         myList = myList->next;
     }
 
@@ -321,6 +318,64 @@ int remove_LList(LList* myList)
     return value;
 }
 
+
+int getValue_LList(const LList myList)
+{
+    return myList.val;
+}
+
+
+void setValue_LList(LList* myList, const int value)
+{
+    myList->val = value;
+}
+
+
+void setValue_any_LList(LList* myList, const unsigned int index, const int value)
+{
+    LList* tmp = myList;
+
+    setActiveElement_LList(tmp, index);
+
+    setValue_LList(tmp, value);
+}
+
+
+void setActiveElement_LList(LList* myList, const unsigned int index)
+{
+    int i = 0;
+
+    goFirst_LList(myList);
+
+    for (i = 0; i != index && myList->next != NULL; i++)
+        next_LList(myList);
+}
+
+
+void display_partialLList(LList* myList)
+{
+    LList* tmp = myList;
+
+    while (tmp->next != NULL)
+    {
+        printf("%d ", tmp->val);
+        next_LList(tmp);
+    }
+}
+
+
+void display_LList(LList* myList)
+{
+    LList* tmp = myList;
+
+    goFirst_LList(tmp);
+
+    while (tmp->next != NULL)
+    {
+        printf("%d ", tmp->val);
+        next_LList(tmp);
+    }
+}
 
 /*##############################
       ERGONOMY MANAGEMENT
