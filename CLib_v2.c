@@ -335,13 +335,12 @@ void setValue_any_LList(LList* myList, const unsigned int index, const int value
 {
     LList* tmp = myList;
 
-    setActiveElement_LList(tmp, index);
-
-    setValue_LList(tmp, value);
+    if(setActiveElement_LList(tmp, index))
+        setValue_LList(tmp, value);
 }
 
 
-void setActiveElement_LList(LList* myList, const unsigned int index)
+int setActiveElement_LList(LList* myList, const unsigned int index)
 {
     int i = 0;
 
@@ -349,6 +348,11 @@ void setActiveElement_LList(LList* myList, const unsigned int index)
 
     for (i = 0; i != index && myList->next != NULL; i++)
         next_LList(myList);
+
+    if (i != index)
+        return 0;
+
+    return 1;
 }
 
 

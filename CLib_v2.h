@@ -253,7 +253,7 @@ void insertPrev_LList(LList* myList, int value);
 */
 int remove_LList(LList* myList);
 
-/*
+/* #ADDED TO DOC
     Returns the value of the current element of the LList
 
     Parameters:
@@ -262,18 +262,18 @@ int remove_LList(LList* myList);
     Return value:
         (int) value of the active element (node) of the LList
 */
-int getValue(const LList myList);
+int getValue_LList(const LList myList);
 
-/*
+/* #ADDED TO DOC
     Modifies the value of the active element (node) of the LList
 
     Parameters
         LList* myList → Pointer on the active element (node) of the LList
         const int value → new value of the element
 */
-void setValue(LList* myList, const int value);
+void setValue_LList(LList* myList, const int value);
 
-/*
+/* #ADDED TO DOC
     Sets the value of any element (node) of the LList
 
     Parameters:
@@ -281,18 +281,22 @@ void setValue(LList* myList, const int value);
         const unsigned int index → index (subscript) of the element to modify
         const int value → new value for the element
 */
-void setValue_any(LList* myList, const unsigned int index, const int value);
+void setValue_any_LList(LList* myList, const unsigned int index, const int value);
 
-/*
+/* #ADDED TO DOC
     Sets the active element (node) of the LList to the index specified
 
     Parameters:
         LList* myList → Pointer on any element of the LList
         const unsigned int index → index of the element to set active
-*/
-void setActiveElement_LList(LList* myList, const unsigned int index);
 
-/*
+    Return values:
+        0 → the specified index is not in the LList, List set to end
+        1 → everything worked fine
+*/
+int setActiveElement_LList(LList* myList, const unsigned int index);
+
+/* #ADDED TO DOC
     Displays the LList to the screen from the active element (node) to the end of the LList
 
     Parameters:
@@ -300,7 +304,7 @@ void setActiveElement_LList(LList* myList, const unsigned int index);
 */
 void display_partialLList(LList* myList);
 
-/*
+/* #ADDED TO DOC
     Displays the whole LList to the screen
 
     Parameters:
