@@ -310,8 +310,11 @@ int remove_LList(LList* myList)
 {
     int value = myList->val;
 
-    (myList->prev)->next = myList->next;
-    (myList->next)->prev = myList->prev;
+    if (myList->prev != NULL)
+        (myList->prev)->next = myList->next;
+
+    if (myList->next != NULL)
+        (myList->next)->prev = myList->prev;
 
     free(myList);
 
