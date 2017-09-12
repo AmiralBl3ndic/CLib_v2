@@ -321,6 +321,29 @@ void display_partialLList(LList* myList);
 */
 void display_LList(LList* myList);
 
+/* #ADDED TO DOC
+    Converts an int array into a LList
+
+    Parameters:
+        int* array → array of integers to convert
+        const unsigned int size → size of the array
+
+    Return value:
+        Pointer on the generated LList
+*/
+LList* convert_intArray_to_LList(int* array, const unsigned int size);
+
+/* #ADDED TO DOC
+    Converts a LList into an int array
+
+    Parameters:
+        LList* myList → LList to convert
+
+    Return value:
+        Generated array of integers
+*/
+int* convert_LList_to_intArray(LList* myList);
+
 /*##############################
       ERGONOMY MANAGEMENT
 ###############################*/

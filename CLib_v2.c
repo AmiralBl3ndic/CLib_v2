@@ -384,6 +384,43 @@ void display_LList(LList* myList)
     }
 }
 
+
+LList* convert_intArray_to_LList(int* array, const unsigned int size)
+{
+    int i = 0;
+    LList* myList = init_LList(size);
+
+    for (i = 0; i < size; i++)
+    {
+        setValue_LList(myList, array[i]);
+        next_LList(myList);
+    }
+
+    goFirst_LList(myList);
+
+    return myList;
+}
+
+
+int* convert_LList_to_intArray(LList* myList)
+{
+    int i = 0, size = size_LList(myList);
+    int* array = NULL;
+
+    goFirst_LList(myList);
+
+    array = malloc(size * sizeof(int));
+    check_alloc(array);
+
+    for (i = 0; i < size; i++)
+    {
+        array[i] = getValue_LList(myList);
+        next_LList(myList);
+    }
+
+    return array;
+}
+
 /*##############################
       ERGONOMY MANAGEMENT
 ###############################*/
