@@ -1,3 +1,12 @@
+/*################################################################################
+#                                                                                #
+#                                 CLib_v2 1.1.0                                  #
+#                       Camille BRIAND & Ruben NABET                             #
+#             Github: https://github.com/AmiralBl3ndic/CLib_v2                   #
+#        Documentation: https://github.com/AmiralBl3ndic/CLib_v2/wiki            #
+#                                                                                #
+#################################################################################*/
+
 #ifndef DEF_CLIBV2
 #define DEF_CLIBV2
 
