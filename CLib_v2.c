@@ -404,7 +404,7 @@ LList* convert_intArray_to_LList(int* array, const unsigned int size)
 
 int* convert_LList_to_intArray(LList* myList)
 {
-    int i = 0, size = size_LList(myList);
+    int i = 0, size = size_LList(*myList);
     int* array = NULL;
 
     goFirst_LList(myList);
@@ -414,7 +414,7 @@ int* convert_LList_to_intArray(LList* myList)
 
     for (i = 0; i < size; i++)
     {
-        array[i] = getValue_LList(myList);
+        array[i] = getValue_LList(*myList);
         next_LList(myList);
     }
 
