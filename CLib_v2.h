@@ -1,6 +1,6 @@
 /*################################################################################
 #                                                                                #
-#                                 CLib_v2 1.1.0                                  #
+#                                 CLib_v2 1.2.0                                  #
 #                       Camille BRIAND & Ruben NABET                             #
 #             Github: https://github.com/AmiralBl3ndic/CLib_v2                   #
 #        Documentation: https://github.com/AmiralBl3ndic/CLib_v2/wiki            #
@@ -52,6 +52,22 @@ int check_alloc_noExit(void* p);
 /*###########################
       ARRAY MANAGEMENT
 ############################*/
+
+//Struct IntArray
+typedef struct IntArray
+{
+    int* array;
+    int size;
+} IntArray;
+
+
+/*
+    Returns an initialized IntArray structure
+
+    Parameters:
+        
+*/
+IntArray init_IntArray(const unsigned int size);
 
 /* #ADDED TO DOC
     Returns a two dimensionnal integers array (array of arrays)

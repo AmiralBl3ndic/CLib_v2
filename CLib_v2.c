@@ -26,6 +26,26 @@ int check_alloc_noExit(void* p)
       ARRAY MANAGEMENT
 ############################*/
 
+IntArray init_IntArray(const unsigned int size)
+{
+    IntArray myArray;
+
+    myArray.array = (int*) malloc(size * sizeof(int));
+    check_alloc(myArray.array);
+
+    myArray.size = size;
+
+    return myArray;
+}
+
+
+void sortAscending(int* array, const unsigned int size)
+{
+
+}
+
+
+
 int** new_2D_int_array(int dim1, int dim2)
 {
     int i = 0;
