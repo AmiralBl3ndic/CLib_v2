@@ -9,6 +9,8 @@ void check_alloc(void* p)
 {
     if (!p)
         exit(EXIT_FAILURE);
+
+    //assert(!p);
 }
 
 
